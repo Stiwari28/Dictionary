@@ -1,0 +1,47 @@
+<!-- templates/base.html -->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            background-color: rgb(7, 7, 33);
+        }
+        #div1{
+            background-color: rgb(201, 201, 248);
+            color: black;
+            width:100px;
+            height:90%;
+            display: flex;
+            float: inline-start;
+            padding-left:30px;
+            padding-right:80px;
+        }
+        #div2{
+            color: rgb(181, 181, 181);
+            padding: 100px;
+            
+        }
+        #div3{
+            width: max-content;
+            height: max-content;
+            margin-left: 40%;
+        }
+    </style>
+    <title>{% block title %}Dictionary App{% endblock %}</title>
+</head>
+<body>
+    <div id="div1">
+        <img src="{% static 'images/logo.png' %}" alt="App Logo" width="50">
+        <h1>Dictionary App</h1>
+    </div>
+    <div id="div2">
+        <div id="div3">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+</body>
+</html>

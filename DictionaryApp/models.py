@@ -4,6 +4,7 @@ from django.db import models
 # models.py
 
 class Word(models.Model):
+    animation=models.ImageField(upload_to='images/')
     word = models.CharField(max_length=100, unique=True)
     meaning = models.TextField()
     example = models.TextField()

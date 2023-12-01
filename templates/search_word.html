@@ -1,0 +1,25 @@
+<!-- templates/dictionary/search_word.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Search your word here</h2>
+    <form method="post" action="{% url 'search_word' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+       
+        <button type="submit">Search</button>
+    </form>
+
+    {% if word_details %}
+    <h2>{{ word_details.word }}</h2>
+    {% if word_details.image %}
+    <img src="{{ word_details.url }}" alt="{{ word_details.word }} Image">
+    {% else %}
+        <p>No animation available for this word.</p>
+    {% endif %}
+    <p><strong>Meaning:</strong> {{ word_details.meaning }}</p>
+    <p><strong>Example:</strong> {{ word_details.example }}</p>
+    <p><strong>Synonym:</strong> {{ word_details.synonym }}</p>
+    <p><strong>Antonym:</strong> {{ word_details.antonym }}</p>
+    {% endif %}
+{% endblock %}
